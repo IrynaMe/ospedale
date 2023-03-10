@@ -1,0 +1,24 @@
+Scrivere una classe con il pattern BUILDER che riguarda la gestione di una scheda
+per un paziente di un ospedale
+
+Avra dati obbligatori
+- Cognome
+- Nome
+- Sesso
+- data Ricovero
+- medico di base (Codice)
+
+Dati facoltativi
+- Residenza citta
+- residenza via
+- telefono
+- persona da contattare
+- prima diagnosi
+- dimissioni
+
+ - creiamo 2/3 pazienti con un numero diverso di attributi
+ - stampiamo (to string)
+
+
+===========================================
+Creaimo un oggetto di classe dottore che prende in carico il paziente e lo gestisce.
