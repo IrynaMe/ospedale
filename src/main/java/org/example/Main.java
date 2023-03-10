@@ -12,46 +12,44 @@ public class Main {
 
 
         //menu
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        boolean flag=false;
-        do{
+        boolean flag = false;
+        do {
             System.out.println("Cosa vuoi fare?");
-            System.out.println("1 -> stampa pazienti di ospedale");
-            System.out.println("2 -> assegna paziente a dottore");
-            System.out.println("3 -> stampa pazienti per id del dottore");
-            System.out.println("4 -> cambia dottore del paziente");
-            System.out.println("5 -> cancella paziente");
+            System.out.println("1 -> registra nuovo paziente");
+            System.out.println("2 -> aggiorna dati del paziente");
+            System.out.println("3 -> stampa pazienti di ospedale");
+            System.out.println("4 -> assegna paziente a dottore");
+            System.out.println("5 -> stampa pazienti per id del dottore");
+            System.out.println("6 -> cambia dottore del paziente");
+            System.out.println("7 -> cancella paziente");
             System.out.println("0 -> Esci");
             System.out.println("Inserisci la scelta:");
-            String scelta=scanner.next();
-            switch (scelta){
+            String scelta = scanner.next();
+            switch (scelta) {
                 case "1":
-                    gestionePazienti.stampaPazientiOspedale();
+                    gestionePazienti.registraNuovoPaziente();
                     break;
                 case "2":
-                    System.out.println("inserisci id del paziente: ");
-                    int idP=Integer.parseInt(scanner.next());
-                    System.out.println("inserisci id del nuovo dottore: 1 o 2 ");
-                    int idD=Integer.parseInt(scanner.next());
-                    gestionePazienti.assegnaPaziente(idP,idD);
+                    gestionePazienti.aggiornaDatiPaziente();
                     break;
                 case "3":
-                    System.out.println("inserisci id del dottore: 1 o 2");
-                    int id=Integer.parseInt(scanner.next());
-                    gestionePazienti.stampaPazientiPerDottore(id);
+                    gestionePazienti.stampaPazientiOspedale();
                     break;
                 case "4":
-                    System.out.println("inserisci id del paziente");
-                    int idPaziente=Integer.parseInt(scanner.next());
-                    System.out.println("inserisci id del nuovo dottore: 1 o 2 ");
-                    int idDottoreNew=Integer.parseInt(scanner.next());
-                    gestionePazienti.cambiaDottore(idPaziente,idDottoreNew);
+                    gestionePazienti.assegnaPaziente();
                     break;
                 case "5":
+                    gestionePazienti.stampaPazientiPerDottore();
+                    break;
+                case "6":
+                    gestionePazienti.cambiaDottore();
+                    break;
+                case "7":
                     System.out.println("inserisci id del paziente");
-                    int idPaz=Integer.parseInt(scanner.next());
-                    gestionePazienti.cancellaPaziente(idPaz);
+                    int idPaziente = Integer.parseInt(scanner.next());
+                    gestionePazienti.cancellaPaziente(idPaziente);
                     break;
                 case "0":
                     System.exit(0);
@@ -60,7 +58,7 @@ public class Main {
                 default:
                     System.out.println("scelta errata, prova di nuovo:");
             }
-        }while(!flag);
+        } while (!flag);
 
     }
 }//
