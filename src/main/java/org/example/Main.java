@@ -1,12 +1,11 @@
 package org.example;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         GestionePazienti gestionePazienti = new GestionePazienti();
-        System.out.println("---------- Registro dottori e pazienti ---------");
+        System.out.println("-- Registro by default 2 dottori e 3 pazienti con diversi dati facoltativi --");
         gestionePazienti.registraDottori();
         gestionePazienti.registraPazienti();
 

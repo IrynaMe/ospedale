@@ -1,8 +1,6 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.ArrayList;
@@ -13,6 +11,7 @@ public @Data class Dottore {
     private static int count = 0;
     private String cognome, nome;
 
+    //pazienti assegnati al dottore
     private ArrayList<Paziente> pazienti = new ArrayList<>();
 
     public Dottore(String cognome, String nome) {

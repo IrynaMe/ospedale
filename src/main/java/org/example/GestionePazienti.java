@@ -7,8 +7,9 @@ import java.util.Scanner;
 public class GestionePazienti {
     Scanner scanner = new Scanner(System.in);
 
-    ArrayList<Paziente> pazientiOspedale = new ArrayList<>();
-    ArrayList<Dottore> dottoriOspedale = new ArrayList<>();
+
+    ArrayList<Paziente> pazientiOspedale = new ArrayList<>();//pazienti registrati nel ospedale
+    ArrayList<Dottore> dottoriOspedale = new ArrayList<>();//dottori registrati nel ospedale
 
     //creo dottori
     public void registraDottori() {
@@ -18,7 +19,7 @@ public class GestionePazienti {
         dottoriOspedale.add(dottore2);
     }
 
-    //creo pazienti
+    //creo 3 pazienti per non inserire a mano
     public void registraPazienti() {
         Paziente paziente1 = new Paziente("Rossi", "Julia", 'F', LocalDate.of(2023, 1, 10), "AA01");
 
@@ -54,6 +55,7 @@ public class GestionePazienti {
         pazientiOspedale.add(paziente3);
     }
 
+
     public void stampaDottori() {
 
         for (Dottore dottore : dottoriOspedale) {
@@ -62,6 +64,7 @@ public class GestionePazienti {
         }
     }
 
+    //inserire proprietà obbligatorie del paziente
     public void registraNuovoPaziente() {
         System.out.println("Stai per registrare un nuovo Paziente");
         System.out.println("inserisci il cognome");
@@ -80,9 +83,11 @@ public class GestionePazienti {
 
     }
 
+    //inserire proprietà facoltativa per paziente
     public void aggiornaDatiPaziente() {
         stampaPazientiOspedale();
         System.out.println("Stai per aggiornare i dati del paziente");
+        stampaPazientiOspedale();
         System.out.println("inserisci id del paziente");
         int id = Integer.parseInt(scanner.next());
         Paziente pazienteCercato = null;
@@ -133,7 +138,7 @@ public class GestionePazienti {
                     pazienteCercato.primaDiagnosi(scanner.next());
                     break;
                 case "0":
-                flag=true;
+                    flag = true;
                     break;
                 default:
                     System.out.println("La scelta errata, prova di nuovo");
@@ -186,7 +191,7 @@ public class GestionePazienti {
         return assegnato;
     }
 
-    //cancella paziente dal dottore (paziente viene dimesso)
+    //cancella paziente dal dottore (paziente viene dimesso), ma rimane nella lista pazienta di ospedale
     public boolean cancellaPaziente(int idPaziente) {
 
         boolean trovato = false;
@@ -206,7 +211,6 @@ public class GestionePazienti {
         return trovato;
     }
 
-
     //assegno paziente ad altro dottore
     public void cambiaDottore() {
         System.out.println("inserisci id del paziente per assegnarlo a un dottore: ");
@@ -219,7 +223,7 @@ public class GestionePazienti {
 
     }
 
-    //stampa listaPazienti del dottore
+    //stampa listaPazienti del dottore con un certo id
     public void stampaPazientiPerDottore() {
 
         System.out.println("inserisci id del dottore: 1 o 2");
